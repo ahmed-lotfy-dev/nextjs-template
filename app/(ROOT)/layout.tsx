@@ -18,18 +18,16 @@ export default async function RootLayout({
   const session = await auth();
   console.log(session);
   return (
-    <SessionProvider session={session}>
-      <html lang="en">
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            inter.variable,
-            roboto_mono.variable
-          )}
-        >
-          {children}
-        </body>
-      </html>
-    </SessionProvider>
+    <html lang="en">
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          inter.variable,
+          roboto_mono.variable
+        )}
+      >
+        <SessionProvider session={session}>{children}</SessionProvider>
+      </body>
+    </html>
   );
 }

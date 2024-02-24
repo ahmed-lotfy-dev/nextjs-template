@@ -5,8 +5,8 @@ import { Card } from "@/components/ui/card";
 
 const page = async () => {
   return (
-    <div className="w-full h-screen flex justify-center items-center">
-      <Card className="p-20 text-center flex flex-col gap-5">
+    <div className=" flex h-screen w-full items-center justify-center">
+      <Card className="flex flex-col gap-5 p-20 text-center">
         <p>Sign In 👇 </p>
         <div className="flex flex-col gap-5">
           <SigninBtn provider="google" />

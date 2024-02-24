@@ -10,6 +10,7 @@ type Props = {
 const SigninBtn = ({ provider }: Props) => {
   return (
     <form
+      className="w-96"
       action={async () => {
         "use server";
         await signIn(provider);
@@ -18,7 +19,7 @@ const SigninBtn = ({ provider }: Props) => {
       <Button type="submit" variant={"outline"}>
         {provider === "google" && <FcGoogle className="mr-2" size={25} />}
         {provider === "github" && <IoLogoGithub className="mr-2" size={25} />}
-        Sign in with <span className="capitalize">{provider}</span>
+        <span className="capitalize">{provider}</span>
       </Button>
     </form>
   );

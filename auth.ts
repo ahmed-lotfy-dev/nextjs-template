@@ -33,7 +33,13 @@ export const {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-  // pages: {
-  //   signIn: "/login",
-  // },
+  session: { strategy: "jwt" },
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      return baseUrl;
+    },
+  },
+  pages: {
+    signIn: "/login",
+  },
 });

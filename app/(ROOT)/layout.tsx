@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { inter, roboto_mono } from "@/components/fonts";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "NextJS Template With Tailwind And Shadcn",
@@ -18,15 +19,22 @@ export default async function RootLayout({
   const session = await auth();
   console.log(session);
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screenn bg-background font-sans antialiased",
           inter.variable,
           roboto_mono.variable
         )}
       >
-        <SessionProvider session={session}>{children}</SessionProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SessionProvider session={session}>{children}</SessionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
